@@ -1,8 +1,10 @@
 import pickle
+
 import cv2 as cv
-import numpy as np
 import face_recognition as facerec
+import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+
 
 class DATA:
     def __init__(self, code, name):
@@ -54,7 +56,7 @@ while True:
 
     cvcharimg = cv.cvtColor(np.array(pilimg), cv.COLOR_RGB2BGR)
     cv.imshow("Face", cvcharimg)
-    key = cv.waitKey(30)
+    key = cv.waitKey(1)
     if key == 27:
         break
 
