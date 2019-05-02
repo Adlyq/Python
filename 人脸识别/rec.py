@@ -56,7 +56,7 @@ while True:
 
     cvcharimg = cv.cvtColor(np.array(pilimg), cv.COLOR_RGB2BGR)
     cv.imshow("Face", cvcharimg)
-    key = cv.waitKey(1000)
+    key = cv.waitKey(1)
     if key == 27:
         break
 
