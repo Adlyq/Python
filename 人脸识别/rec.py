@@ -26,6 +26,7 @@ with open('facedatas', 'rb') as f: #load facedata
 
 while True:
     ret, pic = cap.read()
+    pic = cv.flip(pic, 1) # 图像翻转
 
     cvimg = cv.cvtColor(pic, cv.COLOR_BGR2RGB)  # cv2和PIL中颜色的hex码的储存顺序不同
     pilimg = Image.fromarray(cvimg)
