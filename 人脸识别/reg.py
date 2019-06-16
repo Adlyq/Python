@@ -18,6 +18,8 @@ datas = []
 
 path = os.path.join(os.getcwd(), "./pic")
 for file in os.listdir(path):
+    if file[0] == '.':
+        continue
     fpath = os.path.join(path, file)
     fname = file.split(".")[0]
     pic = cv.imread(fpath)
@@ -35,9 +37,9 @@ with open('./facedatas', 'wb+') as f:
     pickle.dump(datas,f)
 
 
-'''''
+'''
 with open('./facedatas', 'rb') as f:
     datas = pickle.load(f)
     for data in datas:
         print(data.face_code)
-'''''
+'''

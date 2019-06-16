@@ -43,7 +43,7 @@ while True:
         gstr = r'N/A'
         res = -1
         for i in range(len(distances)):
-            if resd >= distances[i] and distances[i] <= 0.38:
+            if resd >= distances[i] and distances[i] <= 0.48:
                 res = i
                 resd = distances[i]
 
