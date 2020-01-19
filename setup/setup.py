@@ -5,8 +5,6 @@ import os
 if __name__ == '__main__':
     flag = False
     print('......设置镜像源......')
-    os.system('sudo pacman-mirrors -i -c China -m rank')
-    os.system('sudo pacman -Syy')
     os.system('sudo chmod o+w /etc/pacman.conf')
     with open('/etc/pacman.conf', 'r') as f:
         lin = f.readline()
@@ -38,11 +36,8 @@ if __name__ == '__main__':
     os.system('chsh -s /usr/bin/fish')
     os.system('curl -L https://get.oh-my.fish | fish')
 
-    os.system('echo y |sudo pacman -Rsc  jre8-openjdk jre8-openjdk-headless ms-office-online empathy simple-scan manjaro-printer system-config-printer cups-pk-helper gnome-user-docs gnome-getting-started-docs yelp gnome-notes gnome-contacts imagewriter lollypop gnome-todo totem gedit libreoffice-still')
     os.system('sudo pacman -S fcitx-im fcitx-sogoupinyin fcitx-configtool wine_gecko wine-mono winetricks-zh wine jdk8  netease-cloud-music gimp firefox firefox-i18n-zh-cn wps-office cmake make gcc gdb visual-studio-code-bin clion deepin.com.qq.im gnome-terminal-fedora exfat-utils  dsniff net-tools advcp deepin-system-monitor deepin-music deepin-editor deepin-movie d flashplugin deepin-movie virtualbox virtualbox-guest-utils virtualbox-guest-iso linux419-virtualbox-host-modules')
-    os.system('yaourt -Sy deepin.com.thunderspeed')
-    os.system("alias -s cp='cp -g'")
-    os.system("alias -s mv='mv -g'")
+    os.system('yay -S deepin.com.thunderspeed')
     os.system('sudo /sbin/rcvboxdrv setup ')
 
     print('......配置输入法......')
