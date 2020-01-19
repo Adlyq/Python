@@ -37,7 +37,7 @@ for file in os.listdir(path):
             print('file=',f,'  shape=', (h, w), end='  face=')
             pic = cv.resize(pic, (h, w), interpolation=cv.INTER_CUBIC)
 
-            cv.imshow("Face", cvcharimg)
+            cv.imshow("Face", pic)
             cv.waitKey(0)
             cv.destroyAllWindows()
             

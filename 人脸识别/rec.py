@@ -26,6 +26,7 @@ with open('facedatas', 'rb') as f: #load facedata
 
 while True:
     ret, pic = cap.read()
+    pic = cv.resize(pic, (320, 255), interpolation=cv.INTER_LINEAR)
     pic = cv.flip(pic, 1) # 图像翻转
 
     cvimg = cv.cvtColor(pic, cv.COLOR_BGR2RGB)  # cv2和PIL中颜色的hex码的储存顺序不同
@@ -56,6 +57,7 @@ while True:
         draw.text((x, y - 50), gstr, (255, 0, 0), font=font)  # 参数1：打印坐标，参数2：文本，参数3：字体颜色，参数4：字体
 
     cvcharimg = cv.cvtColor(np.array(pilimg), cv.COLOR_RGB2BGR)
+    cvcharimg = cv.resize(cvcharimg, (640, 515), interpolation=cv.INTER_LINEAR)
     cv.imshow("Face", cvcharimg)
     key = cv.waitKey(1)
     if key == 27:
