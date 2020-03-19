@@ -27,19 +27,21 @@ for file in os.listdir(path):
         print(file, ': ')
         for f in os.listdir(fpath):
             pic = cv.imread(os.path.join(fpath, f))
-            h, w, _ = pic.shape
-            if (h > w):
-                w = int(512*w/h)
-                h = 512
-            else:
-                h = int(512*h/w)
-                w = 512
+            #h, w, _ = pic.shape
+            w, h, _ = pic.shape
+            MAXSIZE = 512
+            if w > MAXSIZE or h > MAXSIZE:
+                if (h > w):
+                    w = int(MAXSIZE*w/h)
+                    h = MAXSIZE
+                else:
+                    h = int(MAXSIZE*h/w)
+                    w = MAXSIZE
             print('file=',f,'  shape=', (h, w), end='  face=')
             pic = cv.resize(pic, (h, w), interpolation=cv.INTER_CUBIC)
 
             cv.imshow("Face", pic)
-            cv.waitKey(0)
-            cv.destroyAllWindows()
+            cv.waitKey(1)
             
             faces = facerec.api.face_locations(
                 pic, number_of_times_to_upsample=1, model='cnn')
@@ -51,6 +53,7 @@ for file in os.listdir(path):
 
             data = DATA(face_code[0], file)
             datas.append(data)
+cv.destroyAllWindows()
 
 with open('./facedatas', 'wb+') as f:
     pickle.dump(datas, f)
